@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <title>Eje1</title>
+    <script type="text/javascript">
+
+        var operacion_1 = '10 == 10';
+        var operacion_2 = '10 === 10';
+        var operacion_3 = '10 === 10.0';
+        var operacion_4 = ' “Laura” == “laura”';
+        var operacion_5 = ' “Laura” > “laura”';
+        var operacion_6 = ' “Laura” < “laura”';
+        var operacion_7 = ' “123” == 123';
+        var operacion_8 = ' “123” === 123';
+        var operacion_9 = ' parseInt(“123”) === 123';
+
+        function Mostrar(){
+            alert(  'La operación 10 == 10 es' + operacion_1 + '\n' + 
+                    'La operación 10 === 10 es ' + operacion_2 + '\n' + 
+                    'La operación 10 === 10.0 es' + operacion_3 + '\n' +
+                    'La operación “Laura” == “laura” es' + operacion_4 + '\n' +
+                    'La operación “Laura” > “laura” es' + operacion_5 + '\n' +
+                    'La operación “Laura” < “laura” es' + operacion_6 + '\n' +
+                    'La operación “123” == 123 es' + operacion_7 + '\n' +
+                    'La operación “123” === 123 es' + operacion_8 + '\n' +
+                    'La operación parseInt(“123”) === 123 es' + operacion_9 );
+        }
+
+    </script>
+</head>
+<body>
+    <input type = "button" onclick = "Mostrar()" value = "Clic">;
+</body>
+</html> 

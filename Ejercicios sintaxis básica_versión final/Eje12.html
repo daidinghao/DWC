@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>Eje12</title>
+    <script type="text/javascript">
+
+        Mostrar();
+
+        function Mostrar(){
+            
+            do{
+                /*
+                var Apellido = prompt ('Necesito escribir el apellido del primer presidente de la democracia');
+                var Nombre = prompt ('Necesito escribir el nombre del primer presidente de la democracia');
+                var boolean = true;
+
+                if(Apellido != 'AdolfoSuarez' && Nombre != 'Gonzalez'){
+                    alert('ERROR. Inténtelo de nuevo. ¿Cuál fue el primer presidente de la democracia española?');
+                    boolean = false;
+                }else if(Apellido != 'AdolfoSuarez'){
+                    alert('Te falta el nombre. ¿Cuál fue el primer presidente de la democracia española?');
+                    boolean = false;
+                }else if(Nombre != 'Gonzalez'){
+                    alert('Te falta el apellido. ¿Cuál fue el primer presidente de la democracia española?');
+                    boolean = false;
+                }
+                */
+
+                var NombreCompleto = prompt ('Necesito escribir el apellido del primer presidente de la democracia');
+                var Apellido = NombreCompleto.includes('Adolfo Suarez');
+                var Nombre = NombreCompleto.includes('Gonzalez');
+
+                if(!Apellido){
+                    alert('Te falta el nombre. ¿Cuál fue el primer presidente de la democracia española?');
+                }else if(!Nombre){
+                    alert('Te falta el apellido. ¿Cuál fue el primer presidente de la democracia española?');
+                }else if(!Apellido && !Nombre){
+                    alert('ERROR. Inténtelo de nuevo. ¿Cuál fue el primer presidente de la democracia española?');
+                }
+
+            }while(!Apellido && !Nombre);
+
+        }
+
+    </script>
+</head>
+
+</html> 

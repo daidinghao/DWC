@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Eje1</title>
+    <script type="text/javascript">
+
+        var Cadena = prompt('Introduce Numero de telefono nacional(sin espacios)');
+        ExpReg(Cadena);
+
+        function ExpReg(Objeto){
+
+            var patt1 = /^\d{9}$/;
+
+            if(patt1.test(Objeto)){
+                alert('El Numero de telefono nacional es valida'); 
+            }else{
+                alert('El Numero de telefono nacional no es valida'); 
+            }
+        }
+
+    </script>
+</head>
+
+</html> 
