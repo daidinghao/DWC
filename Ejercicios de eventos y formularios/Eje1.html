@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <p id="contenidos_1">a</p>
+    <a id="enlace_1" href="#">Ocultar contenidos</a>
+    <br/>
+    <p id="contenidos_2">b</p>
+    <a id="enlace_2" href="#">Ocultar contenidos</a>
+    <br/>
+    <p id="contenidos_3">c</p>
+    <a id="enlace_3" href="#">Ocultar contenidos</a>
+
+    <script type="text/javascript">
+
+        var EnlaceId = document.getElementById('enlace_1');
+        var TextId = document.getElementById('contenidos_1');
+        EnlaceId.addEventListener('click', Funtion);
+        
+
+        function Funtion(event) {
+            event.preventDefault();
+            if(TextId.style.display === 'none'){
+                TextId.style.display = 'inline';
+            }else{
+                TextId.style.display = 'none';
+            }
+        }
+
+    </script>
+</body>
+</html>
