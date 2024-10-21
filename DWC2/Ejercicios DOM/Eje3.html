@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Ejercicio DOM</title>
+    <script type="text/javascript">
+        function insertar() {
+            var LiElements = document.getElementsByTagName('li');
+            var NumeroLi = LiElements.length + 1;
+
+            var Lista = document.getElementById('lista');
+            var newLi = document.createElement('li');
+            newLi.textContent = 'Elemento ' + NumeroLi; 
+            Lista.appendChild(newLi);
+        }
+    </script>
+</head>
+<body>
+    <ul id="lista">
+
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+
+    </ul>
+    <input type="button" value="Insertar elemento" onclick="insertar();">
+</body>
+</html>

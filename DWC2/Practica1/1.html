@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Practica 1</title>
+
+        <style>
+            
+        </style>
+
+        <script type="text/javascript">
+            //Mostrar Descripcion
+                function MostrarDes(){
+                    var Estado = document.getElementsByName('texto').style.display;
+                    if(estado == 'none'){
+                        this.style.display = 'block';
+                    }else{
+                        this.style.display = 'none';
+                    }
+                }
+            
+            //CambiarImagen
+                function CambiarImagen(){
+                    var Imagen = document.getElementById('img');
+                    var ValueEle = this.value;
+                    if(ValueEle == 'Dis'){
+                        Imagen.src = "U:\\DWC2\\Practica1\\Imagen\\1.jfif";
+                    }else if (ValueEle == 'Ofi'){
+                        Imagen.src = "U:\\DWC2\\Practica1\\Imagen\\2.jfif";
+                    }else if (ValueEle == 'Pro'){
+                        Imagen.src = "U:\\DWC2\\Practica1\\Imagen\\3.jfif";
+                    }
+
+                }
+
+        </script> 
+    </head>
+    <body>
+        <form>
+            <label for="TipoIncidencia">Tipo de Incidencia</label>
+            <select id="TipoIncidencia">
+                <option value="Dis">Distribucion</option>
+                <option value="Ofi">Oficina</option>
+                <option value="Pro">Producción</option>
+            </select><br>
+            <label for="NumSerie">Numero de serie</label>
+            <input type="text" name="NumSerie"><br>
+            <input type="button" name="MostrarDes" value="Mostrar Descripcion">
+            <textarea id="texto" name="texto" rows="6" cols="100" style="display: none"></textarea>
+
+            <br>
+            <input type="checkbox" name="Concpt">
+            <label for="Concpt">He leido y acepto las condiciones del servicio</label><br>
+            <input type="submit" value="Enviar Datos">
+
+        </form>
+
+        <img src="U:\DWC2\Practica1\Imagen\1.jfif" width="300">
+    <!--Codigo de body-->
+    <script type="text/javascript">
+
+        //Mostrar Descripcion
+        var DescripcionElement = document.getElementsByName('MostrarDes').addEventListener('click',MostrarDes);
+        
+        //Cambiar Imagen
+        var TipoIncidencia = document.getElementById('img').addEventListener('click',function(){
+            this.src = "U:\\DWC2\\Practica1\\Imagen\\3.jfif";
+        });
+
+    </script>    
+    </body>
+</html>

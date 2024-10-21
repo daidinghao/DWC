@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Eje2</title>
+    <script type="text/javascript">
+
+        var Cadena = prompt('Introduce Fecha(dd/mm/yyyy)');
+        ExpReg(Cadena);
+
+        function ExpReg(Objeto){
+
+            var patt1 =  /^(3[01]|12[0-9]|0?[1-9])\/(1[0-2]|0[1-9])\/\d{4}$/ ;
+
+            if(patt1.test(Objeto)){
+                alert('El Fecha formado es valida'); 
+            }else{
+                alert('El Fecha formado no es valida'); 
+            }
+        }
+
+    </script>
+</head>
+
+</html> 

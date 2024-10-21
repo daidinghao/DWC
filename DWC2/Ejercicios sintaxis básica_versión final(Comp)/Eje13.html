@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Eje13</title>
+    <script type="text/javascript">
+
+        Mostrar();
+
+        function Mostrar(){
+            
+            var recibir = prompt('Introducir un numero para sumar(introducir 0 para salir)');
+            var primerNum = Number(recibir);
+            var recibir = prompt('Introducir un numero para sumar(introducir 0 para salir)');
+            var segunrNum = Number(recibir);
+            var Sum = primerNum + segunrNum;
+
+            do{
+
+                alert(Sum);
+                var recibir = prompt('Introducir un numero para sumar(introducir 0 para salir)');
+                var segunrNum = Number(recibir);
+                var Sum = Sum + segunrNum;
+
+            }while(recibir != 0);
+
+        }
+
+    </script>
+</head>
+
+</html> 
