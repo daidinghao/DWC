@@ -1,0 +1,184 @@
+<html>
+    <head>
+        <title>Practica 1</title>
+
+        <style>
+
+            html{
+                zoom: 120%;
+            }
+
+            h1{
+                display: flex;
+                background-color: chocolate;
+                color: white;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 50px;
+            }
+
+            .Body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .Imagen{
+                width: 300px;
+                order: 1;
+            }
+
+            .Formulario{
+                order: 3;
+            }
+
+            .Error{
+                border: 2px solid red;
+            }
+
+            .Error_Mensaje {
+                background-color: red; 
+                color: white; 
+                padding: 10px;
+                margin-top: 10px;
+                display: none;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+           //Mostrar Descripcion
+            function MostrarDes(){
+                if(this.nextElementSibling.style.display == 'none'){    
+                    this.nextElementSibling.style.display = 'block';
+                    this.previousElementSibling.style.display = 'block';
+                    this.style.display = 'none';
+                }
+            }
+            
+            //CambiarImagen se usa para cambiar imágenes
+            function CambiarImagen(){
+                var Imagen = document.getElementById('img'); 
+                var ValueEle = document.getElementById('imageSelector').value; 
+
+                //Cambiar imágenes según la selección
+                if(ValueEle == 'Dis'){
+                    Imagen.src = "Imagen/Distribucion.png"; 
+                    Imagen.alt = "Distribucion";
+                }else if (ValueEle == 'Ofi'){
+                    Imagen.src = "Imagen/Oficina.png";
+                    Imagen.alt = "Oficina";
+                }else if (ValueEle == 'Pro'){
+                    Imagen.src = "Imagen/Produccion.png";
+                    Imagen.alt = "Produccion";
+                }
+            }      
+
+            //Si el número de serie es incorrecto, la entrada y el mensaje incorrectos se eliminarán al hacer clic
+            function LimpiarEstado() {
+                var NumSerie = document.getElementById('NumSerie');
+                var Mensaje = document.getElementById('Mensaje_Num');
+
+                if(Mensaje_Num.style.display == 'block'){
+                    NumSerie.value = '';
+                    NumSerie.classList.remove('Error');
+                    Mensaje.style.display = 'none';
+                }
+            }
+
+            // Validar número de serie y checkbox
+            function ValidarFormulario(Event) {
+                var NumSerie = document.getElementById('NumSerie');
+                var Mensaje_Num = document.getElementById('Mensaje_Num');
+                var ConcptEle = document.getElementById('Concpt');
+                var Mensaje_Concpt = document.getElementById('Mensaje_Concpt');
+                var EsError = false;
+
+                // Expresión regular para validar el número de serie
+                var ExpReg = /^\d{3}[A-Z]{4}(1|2|A)$/;
+
+                // Validar número de serie
+                if(!ExpReg.test(NumSerie.value)) {
+                    NumSerie.classList.add('Error');
+                    Mensaje_Num.style.display = 'block';
+                    Mensaje_Num.textContent = 'El formato debe ser: dígitos + 4 letras mayúsculas + 1 o 2 o A';
+                    EsError = true;
+                } else {
+                    NumSerie.classList.remove('Error');
+                    Mensaje_Num.style.display = 'none';
+                }
+
+                // Validar si la casilla de verificación está seleccionada
+                if(!ConcptEle.checked) {
+                    Mensaje_Concpt.style.display = 'block';
+                    Mensaje_Concpt.textContent = 'Necesita seleccionar esta opción';
+                    EsError = true;
+                } else {
+                    Mensaje_Concpt.style.display = 'none';
+                }
+
+                // Si hay errores, detener la acción de envío
+                if(EsError) {
+                    Event.preventDefault();
+                }
+            }
+
+        </script> 
+    </head>
+
+    <body>
+        <h1>INFORME INCIDENCIA</h1>
+        <div class="Body">
+            <!-- Formulario -->
+            <div class="Formulario">
+                <form id="Formulario">
+                    <!--Selección del cuadro desplegable de imagen-->
+                    <label for="TipoIncidencia">Tipo de Incidencia</label>
+                    <select id="imageSelector" onchange="CambiarImagen()">
+                        <option value="Dis">Distribucion</option>
+                        <option value="Ofi">Oficina</option>
+                        <option value="Pro">Producción</option>
+                    </select>
+                    <br>
+        
+                    <!-- Introduzca el número de serie -->
+                    <label for="NumSerie">Numero de serie</label>
+                    <input type="text" id="NumSerie" placeholder="eje: 123ABCD1" onfocus ="LimpiarEstado()"> 
+                    <div id="Mensaje_Num" class="Error_Mensaje"></div>
+                    <br>
+        
+                    <!-- Botón para mostrar y ocultar descripción -->
+                    <label for="Descrip" style="display: none;">Descripcion</label>
+                    <input type="button" id="texto" value="Mostrar Descripcion""> 
+                    <textarea rows="8" cols="30" style="display: none;"></textarea>
+                    <br>
+        
+                    <!--La casilla de verificación es correcta -->
+                    <input type="checkbox" id="Concpt">
+                    <label for="Concpt">He leido y acepto las condiciones del servicio</label>
+                    <div id="Mensaje_Concpt" class="Error_Mensaje"></div>
+                    <br>  
+        
+                    <!-- Enviar -->
+                    <input type="submit" id="Enviar" value="Enviar Datos">
+        
+                </form>
+            </div>
+
+            <!--Mostrar imagen-->
+            <div class="Imagen">
+                <img id="img" src="Imagen/Distribucion.png" alt="Distribucion">
+            </div>
+        </div>
+        
+    <script type="text/javascript">  
+
+        //Escuche el botón que muestra el texto
+        document.getElementById('texto').addEventListener("click", MostrarDes);
+
+        // Escuchar el envío del formulario para validar
+        document.getElementById('Formulario').addEventListener('submit', ValidarFormulario);
+
+    </script>    
+    </body>
+</html>
