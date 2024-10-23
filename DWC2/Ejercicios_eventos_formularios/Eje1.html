@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <script type="text/javascript">
+        function Funtion() {
+            let estado = this.previousElementSibling.style.display;
+            if( estado == 'none'){
+                this.previousElementSibling.style.display = 'block';
+                this.innerHTML = 'Ocultar contenidos';
+            }else{
+                this.previousElementSibling.style.display = 'none';
+                this.innerHTML = 'Mostrar contenidos';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="contenidos_1">a</p>
+    <a id="enlace_1" href="#">Ocultar contenidos</a>
+    <br/>
+    <p id="contenidos_2">b</p>
+    <a id="enlace_2" href="#">Ocultar contenidos</a>
+    <br/>
+    <p id="contenidos_3">c</p>
+    <a id="enlace_3" href="#">Ocultar contenidos</a>
+
+    <script type="text/javascript">
+        for(i=1;i<4;i++){
+            var EnlaceId = document.getElementById('enlace_'+i).addEventListener('click', Funtion);
+        }
+    </script>
+
+</body>
+</html>
