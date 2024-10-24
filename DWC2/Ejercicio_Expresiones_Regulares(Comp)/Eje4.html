@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <title>Eje4</title>
+    <script type="text/javascript">
+
+        var Cadena = prompt('Introduce Etiqueta HTML (<etiqueta> o </etiqueta>)');
+        ExpReg(Cadena);
+
+        function ExpReg(Objeto){
+
+            var patt1 = /<[^>]+>/;
+
+            if(patt1.test(Objeto)){
+                alert('El Etiqueta HTML es valida'); 
+            }else{
+                alert('El Etiqueta HTML no es valida'); 
+            }
+        }
+
+    </script>
+</head>
+
+</html> 
