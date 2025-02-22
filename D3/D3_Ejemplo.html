@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Core Features</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!--Cargue la biblioteca JavaScript D3.js v7 desde el CDN oficial de D3.js.--> 
+</head>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        svg {
+            border: 1px solid #ddd;
+        }
+        .bar {
+            fill: steelblue;
+        }
+        .bar:hover {
+            fill: orange;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>D3.js Core Features Demonstration</h2>
+    <svg width="400" height="300"></svg>
+
+    <script>
+        const data = [10, 20, 30, 40, 50];
+        
+        const svg = d3.select("svg");
+
+        const xScale = d3.scaleBand()
+            .domain(data.map((d, i) => i))
+            .range([0, 400])
+            .padding(0.1);
+        
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(data)])
+            .range([300, 0]);
+
+        svg.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", (d, i) => xScale(i))
+            .attr("y", d => yScale(d))
+            .attr("width", xScale.bandwidth())
+            .attr("height", d => 300 - yScale(d));
+
+        setTimeout(() => {
+            svg.selectAll("rect")
+                .data([15, 25, 35, 45, 55])
+                .transition()
+                .duration(1000)
+                .attr("y", d => yScale(d))
+                .attr("height", d => 300 - yScale(d));
+        }, 2000);
+
+        svg.selectAll("rect")
+            .on("mouseover", function() {
+                d3.select(this).attr("fill", "orange");
+            })
+            .on("mouseout", function() {
+                d3.select(this).attr("fill", "steelblue");
+            });
+
+
+    </script>
+</body>
+</html>
